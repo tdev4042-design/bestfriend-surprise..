@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Bestfrnd 🎀</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: #773b57;
+  background: linear-gradient(160deg,#fff0f6,#ffe0ed,#fff5fa);
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+main {
+  max-width: 480px;
+  margin: auto;
+  padding: 25px 18px 45px;
+}
+
+.card {
+  background: rgba(255,255,255,.85);
+  border: 1px solid #ffd1e2;
+  border-radius: 28px;
+  padding: 25px 20px;
+  margin: 18px 0;
+  box-shadow: 0 10px 35px #e99ab526;
+}
+
+.ribbon { font-size: 42px; }
+
+h1 {
+  color: #d64f87;
+  font-size: 30px;
+  margin: 12px 0;
+}
+
+h2 { color: #c34d7d; font-size: 22px; }
+
+p {
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  background: linear-gradient(135deg,#ff8fba,#e75c99);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 14px 20px;
+  margin: 7px 4px;
+  cursor: pointer;
+  box-shadow: 0 5px 12px #df629b30;
+  transition: transform .2s;
+}
+
+button:active { transform: scale(.96); }
+
+.secondary {
+  background: #fff0f6;
+  color: #bd4779;
+  border: 1px solid #ffc5dc;
+}
+
+.message {
+  background: #fff0f6;
+  border-radius: 18px;
+  padding: 15px;
+  margin-top: 16px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.hidden { display: none; }
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+  z-index: 5;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+}
+
+footer {
+  color: #b66c8c;
+  font-size: 13px;
+  margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+<main>
+  <div class="ribbon">🎀 🩷 🎀</div>
+
+  <h1>Heyyy Bestfrnd! 🥹💗</h1>
+  <p>
+    Aaj ka ye chhota sa corner<br>
+    sirf meri <b>bestfrnd 🎀🤌🏻</b> ke liye!
+  </p>
+
+  <section class="card">
+    <div style="font-size:52px">🧸🌷</div>
+    <h2>A virtual hug for you!</h2>
+    <p>
+      Kaash main abhi tere paas hota,<br>
+      tujhe ek tight sa hug deta 🫂<br>
+      aur bolta: "Sab theek hai meri pagli."
+    </p>
+    <button onclick="hug()">Click for a tight hug 🫂</button>
+    <div id="hugMsg" class="message hidden"></div>
+  </section>
+
+  <section class="card">
+    <div style="font-size:42px">🩷</div>
+    <h2>Period-care corner 🌸</h2>
+    <p>
+      Mood off hai? Sad feel ho raha hai?<br>
+      It's okay, meri bestie. 🥺<br>
+      Tujhe har waqt happy rehne ki zaroorat nahi.
+    </p>
+    <button onclick="comfort()">Make me smile 🎀</button>
+    <div id="comfortMsg" class="message hidden"></div>
+  </section>
+
+  <section class="card">
+    <div style="font-size:42px">💌</div>
+    <h2>A little letter from Tarun</h2>
+    <p>Ek secret message hai tere liye...</p>
+    <button onclick="letter()">Open your letter 💗</button>
+    <div id="letterMsg" class="message hidden">
+Oyee meri bestfrnd 🎀🤌🏻,
+
+Kaash main tere paas hota aur tujhe ek warm hug de pata. 🫂💗
+
+Agar aaj tera mood off hai, toh koi baat nahi.
+Tujhe pretend karne ki zaroorat nahi ki sab theek hai.
+Baat karni ho toh main hoon, rona ho toh main sununga,
+aur agar bas company chahiye toh woh bhi milegi. 🥹
+
+Apna khayal rakhna, rest karna,
+aur cramps ho toh warm water bottle use kar lena. 🌷
+
+Distance chahe jitna bhi ho,
+meri taraf se ek extra tight hug tere liye! 🫂
+
+— Tera Tarun ❤️
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Choose what you need 💕</h2>
+    <p>Aaj meri bestie ko kya chahiye?</p>
+    <button class="secondary" onclick="pick('hug')">Hug 🫂</button>
+    <button class="secondary" onclick="pick('laugh')">Smile 😂</button>
+    <button class="secondary" onclick="pick('love')">Pyaar 💗</button>
+    <div id="choiceMsg" class="message hidden"></div>
+  </section>
+
+  <p style="font-size:19px">
+    You're special, Bestfrnd. 🎀<br>
+    Sending unlimited virtual hugs! 🫂💗
+  </p>
+
+  <footer>Made with lots of care by Tarun 🌷</footer>
+</main>
+
+<script>
+function reveal(id, text) {
+  const el = document.getElementById(id);
+  if (text) el.textContent = text;
+  el.classList.remove("hidden");
+}
+
+function hug() {
+  reveal("hugMsg",
+    "HAPPPPPY TIGHT HUGGGG! 🫂💗🎀\n" +
+    "Imagine Tarun giving you the biggest, warmest hug ever.\n" +
+    "Tu akeli nahi hai, bestie. ❤️");
+  for (let i = 0; i < 18; i++) makeHeart();
+}
+
+const comforts = [
+  "Oye pagli, ek deep breath le. Tu jitna sochti hai usse zyada strong hai. 🩷",
+  "Aaj rest karna bhi productive hai, madam ji. 🧸🌷",
+  "Official reminder: tu loved hai, important hai aur tujhe care milni chahiye. 💗",
+  "Ek virtual forehead kiss aur ek extra tight hug tere liye! 🫂🎀"
+];
+let ci = 0;
+
+function comfort() {
+  reveal("comfortMsg", comforts[ci % comforts.length]);
+  ci++;
+  makeHeart();
+}
+
+function letter() {
+  reveal("letterMsg");
+  for (let i = 0; i < 8; i++) makeHeart();
+}
+
+function pick(type) {
+  const messages = {
+    hug: "Aaja idharrr 🫂🩷 Ek extra-long virtual hug from Tarun. No words needed.",
+    laugh: "Breaking news 😂🎀: Bestfrnd ko officially 1000 smiles aur 1 million hugs prescribe kiye gaye hain!",
+    love: "Reminder 💗: Tujhe har din perfect hone ki zaroorat nahi. Tu jaisi hai, waise hi special hai. — Tarun 🥹"
+  };
+  reveal("choiceMsg", messages[type]);
+}
+
+function makeHeart() {
+  const el = document.createElement("span");
+  el.className = "heart";
+  el.textContent = ["💗","💕","🎀","🩷","🌷"][Math.floor(Math.random()*5)];
+  el.style.left = Math.random()*95 + "vw";
+  el.style.fontSize = (18 + Math.random()*18) + "px";
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 5000);
+}
+</script>
+</body>
+</html>
